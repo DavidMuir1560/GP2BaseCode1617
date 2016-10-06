@@ -195,8 +195,55 @@ void GameApplication::initGraphics()
 
 }
 
+//Function to set/Rest Viewport 
 void GameApplication::setViewport(int width, int height)
 {
+	// Screen Ratio
+	GLfloat ratio;
+
+	// make sure height is always above 1 
+	
+	if (height == 0)
+	{
+		height = 1;
+	}
+
+
+	// Calculate screen ration 
+	ratio = (GLfloat)width / (GLfloat)height;
+
+	//Setup viewport 
+	glViewport(0, 0 ,(GLsizei)width, (GLsizei)height);
+
+	//Change to projection matrix mode 
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+
+	// Calculate perspective matrix, using gLM
+	mat4 projectionMatrix = perspective(radians(45.0f), ratio, 0.1f, 100.0f);
+	glLoadmatrixf (&projectionMatrix[0][0]);
+
+	//Switch to ModelView 
+	glMatrixMode(GL_MODELVIEW);
+
+	//Reset using Identity Matrix 
+	glLoadIdentity();
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
 }
 
 
