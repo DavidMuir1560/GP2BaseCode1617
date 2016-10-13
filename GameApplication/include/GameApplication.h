@@ -27,6 +27,10 @@ public:
 
 	virtual void OnRestored();
 
+	virtual void initScene();
+
+	virtual void destroyScene();
+
 	virtual void update();
 
 	virtual void render();
